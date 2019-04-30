@@ -135,7 +135,7 @@
                         :else   (with-let [kids kids]
                                   (.call insertBefore this x k))))))))
 
-(defn- ensure-kids!
+(defn ensure-kids!
   [this]
   (with-let [this this]
     (when-not (.-hoplonKids this)
@@ -346,7 +346,7 @@
 
 ;; env ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defn- parse-args
+(defn parse-args
   [args]
   (loop [attr (transient {})
          kids (transient [])
@@ -363,7 +363,7 @@
   [this attr]
   (reduce-kv #(do (-attr! %2 %1 %3) %1) this attr))
 
-(defn- add-children!
+(defn add-children!
   [this [child-cell & _ :as kids]]
   (with-let [this this]
     (doseq [x (vflatten kids)]
